@@ -16,23 +16,29 @@ function BrotliPlugin (api, options) {
 
     // get the files
     const patternExt = (options.extensions.length > 1) ? `{${options.extensions.join(',')}}` : options.extensions[0]
-    console.log(`Starting Brotli for the following extensions: ` + patternExt.slice(1, -1))
+    console.log(`Starting Compressing the following extensions: ` + patternExt.slice(1, -1))
     const pattern = `**/*.${patternExt}`
     const globResult = await globAsync(pattern, {cwd: outputDir, ignore: '**/*.br', nodir: true})
     const files = globResult.map(res => {
       return {
         from: path.join(outputDir, res),
-        to: path.join(outputDir, options.path, `${res}.br`),
+        to: path.join(outputDir, options.path, `${res}`),
         level: options.level
       }
     })
 
-    // compress using worker pool
-    const pool = new Piscina({filename: path.resolve(__dirname, 'worker.js')})
-    const compress = files.map(file => pool.runTask(file))
-    await Promise.all(compress)
+    // compress brotli using worker pool
+    const poolBrotli = new Piscina({filename: path.resolve(__dirname, 'workerBrotli.js')})
+    const compressBrotli = files.map(file => poolBrotli.runTask(file))
+    await Promise.all(compressBrotli)
 
-    console.log(`Brotli compressed ${pool.completed} files - ${(pool.duration / 1000).toFixed(3)}s - ${(pool.runTime.average / 1000).toFixed(3)}/s`)
+    console.log(`Brotli compressed ${poolBrotli.completed} files - ${(poolBrotli.duration / 1000).toFixed(3)}s - ${(poolBrotli.runTime.average / 1000).toFixed(3)}/s`)
+
+    const poolGzip = new Piscina({filename: path.resolve(__dirname, 'workerGzip.js')})
+    const compressGzip = files.map(file => poolGzip.runTask(file))
+    await Promise.all(compressGzip)
+
+    console.log(`Gzip compressed ${poolGzip.completed} files - ${(poolGzip.duration / 1000).toFixed(3)}s - ${(poolGzip.runTime.average / 1000).toFixed(3)}/s`)
   })
 }
 
