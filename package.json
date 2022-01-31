@@ -7,6 +7,9 @@
     "name": "Travis Reynolds",
     "email": "travis@travisreynolds.dev"
   },
+  "scripts": {
+    "lint": "standard"
+  },
   "license": "MIT",
   "homepage": "https://github.com/thetre97/gridsome-plugin-brotli#readme",
   "repository": {
