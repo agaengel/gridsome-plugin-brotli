@@ -9,7 +9,7 @@ const zlib = require('zlib')
 
 const pipelineAsync = util.promisify(pipeline)
 
-async function gzipCompressFile (from, to, level) {
+async function gzipCompressFile (from, to) {
   const toDir = path.dirname(to)
   await mkdirp(toDir)
   await pipelineAsync(
@@ -19,6 +19,6 @@ async function gzipCompressFile (from, to, level) {
   )
 }
 
-module.exports = async function ({ from, to, level }) {
-  return gzipCompressFile(from, to, level)
+module.exports = async function ({ from, to }) {
+  return gzipCompressFile(from, to)
 }

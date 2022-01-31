@@ -8,7 +8,10 @@
     "email": "travis@travisreynolds.dev"
   },
   "scripts": {
-    "lint": "standard"
+    "lint": "standard",
+    "test": "standard && tap test/*.test.js --coverage --100",
+    "test:report": "standard && tap test/*.test.js --coverage  --coverage-report=html --100",
+    "posttest": "tap --coverage --coverage-report=lcovonly"
   },
   "license": "MIT",
   "homepage": "https://github.com/thetre97/gridsome-plugin-brotli#readme",

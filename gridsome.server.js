@@ -28,13 +28,13 @@ function BrotliPlugin (api, options) {
     })
 
     // compress brotli using worker pool
-    const poolBrotli = new Piscina({ filename: path.resolve(__dirname, 'workerBrotli.js') })
+    const poolBrotli = new Piscina({ filename: path.resolve(__dirname, 'src/workerBrotli.js') })
     const compressBrotli = files.map(file => poolBrotli.runTask(file))
     await Promise.all(compressBrotli)
 
     console.log(`Brotli compressed ${poolBrotli.completed} files - ${(poolBrotli.duration / 1000).toFixed(3)}s - ${(poolBrotli.runTime.average / 1000).toFixed(3)}/s`)
 
-    const poolGzip = new Piscina({ filename: path.resolve(__dirname, 'workerGzip.js') })
+    const poolGzip = new Piscina({ filename: path.resolve(__dirname, 'src/workerGzip.js') })
     const compressGzip = files.map(file => poolGzip.runTask(file))
     await Promise.all(compressGzip)
 
