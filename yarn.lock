@@ -322,14 +322,21 @@
   dependencies:
     type-detect "4.0.8"
 
-"@sinonjs/fake-timers@^7.0.4", "@sinonjs/fake-timers@^7.1.2":
+"@sinonjs/fake-timers@^7.0.4":
   version "7.1.2"
   resolved "https://registry.yarnpkg.com/@sinonjs/fake-timers/-/fake-timers-7.1.2.tgz#2524eae70c4910edccf99b2f4e6efc5894aff7b5"
   integrity sha512-iQADsW4LBMISqZ6Ci1dupJL9pprqwcVFTcOsEmQOEhW+KLCVn/Y4Jrvg2k19fIHCp+iFprriYPTdRcQR8NbUPg==
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@sinonjs/samsam@^6.0.2":
+"@sinonjs/fake-timers@^9.0.0":
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/@sinonjs/fake-timers/-/fake-timers-9.0.0.tgz#6854809cd058c6e25b3da2fa063153eaea4ffc72"
+  integrity sha512-+shXA2X7KNP7H7qNbQTJ3SA+NQc0pZDSBrdvFSRwF8sAo/ohw+ZQFD8Moc+gnz51+1eRXtEQBpKWPiQ4jsRC/w==
+  dependencies:
+    "@sinonjs/commons" "^1.7.0"
+
+"@sinonjs/samsam@^6.1.1":
   version "6.1.1"
   resolved "https://registry.yarnpkg.com/@sinonjs/samsam/-/samsam-6.1.1.tgz#627f7f4cbdb56e6419fa2c1a3e4751ce4f6a00b1"
   integrity sha512-cZ7rKJTLiE7u7Wi/v9Hc2fs3Ucc3jrWeMgPHbbTCeVAB2S0wOBbYlkJVeNSL04i7fdhT8wIbDq1zhC/PXTD2SA==
@@ -2907,14 +2914,14 @@ signal-exit@^3.0.4, signal-exit@^3.0.6:
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.6.tgz#24e630c4b0f03fea446a2bd299e62b4a6ca8d0af"
   integrity sha512-sDl4qMFpijcGw22U5w63KmD3cZJfBuFlVNbVMKje2keoKML7X2UzWbc4XrmEbDwg0NXJc3yv4/ox7b+JWb57kQ==
 
-sinon@^11.1.2:
-  version "11.1.2"
-  resolved "https://registry.yarnpkg.com/sinon/-/sinon-11.1.2.tgz#9e78850c747241d5c59d1614d8f9cbe8840e8674"
-  integrity sha512-59237HChms4kg7/sXhiRcUzdSkKuydDeTiamT/jesUVHshBgL8XAmhgFo0GfK6RruMDM/iRSij1EybmMog9cJw==
+sinon@^13.0.0:
+  version "13.0.0"
+  resolved "https://registry.yarnpkg.com/sinon/-/sinon-13.0.0.tgz#3701f90204a1baa7457a3da70c9adcf335e92056"
+  integrity sha512-3tjMDB/tY04b06Bnb4aMKQfNrau2C9HET+R4HVWfv2KegDVLGg4wnBqjVepvxR7S7R1GTwDZzEv52tpFipt6yA==
   dependencies:
     "@sinonjs/commons" "^1.8.3"
-    "@sinonjs/fake-timers" "^7.1.2"
-    "@sinonjs/samsam" "^6.0.2"
+    "@sinonjs/fake-timers" "^9.0.0"
+    "@sinonjs/samsam" "^6.1.1"
     diff "^5.0.0"
     nise "^5.1.0"
     supports-color "^7.2.0"
@@ -3188,7 +3195,7 @@ tap-yaml@^1.0.0:
   dependencies:
     yaml "^1.5.0"
 
-tap@^15.0.10:
+tap@^15.1.6:
   version "15.1.6"
   resolved "https://registry.yarnpkg.com/tap/-/tap-15.1.6.tgz#dc393e17bead934a2ee734d6124928694f2da2db"
   integrity sha512-TN7xH6Q2tUPTd6qwmkhuFJcx1vUR8e4dDUpBKc61G0krOzne7Ia6aKIFb8O/0kVazachSSuVME1V8nQ2xwWL8w==
